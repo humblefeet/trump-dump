@@ -1,0 +1,10 @@
+.Image{
+    height: 300px;
+    width: 40%;
+    margin: 5rem auto 3rem;
+}
+
+img{
+    width: 70%;
+    height: auto;
+}
