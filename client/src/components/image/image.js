@@ -7,7 +7,7 @@ class Image extends React.Component{
         
     return(
         <div className="Image">
-            <img src='' alt="Trump Sillouhette"></img>
+            <img src={trump} alt="Trump Sillouhette"></img>
         </div>
     )
 }
