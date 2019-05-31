@@ -1,3 +1,26 @@
+@keyframes fadeInOut {
+    0% {
+    opacity: 0.1;
+    }
+
+    25% {
+    opacity: 0.5;
+    }
+
+    40%{
+    opacity: 0.9;
+    }
+
+    50%{
+    opacity: 1;
+    }
+
+    100% {
+    opacity: 0%;
+    }
+}
+
+
 .Quote{
     width: 60%;
     margin: 0 auto;
@@ -6,4 +29,14 @@
 p{
     font-weight: 500;
     margin: 0;
+    font-size: 3rem;
+    position: relative;
+    top: 1rem;
+    left: 5%;
+    opacity: 0;
+    color: rgb(19, 21, 158);
+    animation-name: fadeInOut;
+    animation-delay: 1s;
+    animation-duration: 11s;
 }
+

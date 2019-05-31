@@ -13,36 +13,47 @@ class App extends React.Component {
       quote:null,
       isLoaded: false
     }
+    this.apiCall.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount(){
+    this.apiCall();
+
+  }
+
+
+
+    
+  apiCall = () => {
     fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/random")
-        .then(res => res.json())
-        .then(
-            (result) => {
-            this.setState({
-                isLoaded: true,
-                quote: result.message
-            });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-            this.setState({
-                isLoaded: true,
-                error
-            });
-            }
-        )
-}
+      .then(res => res.json())
+      .then(
+          (result) => {
+          this.setState({
+              isLoaded: true,
+              quote: result.message
+          });
+      },
+      // Note: it's important to handle errors here
+      // instead of a catch() block so that we don't swallow
+      // exceptions from actual bugs in components.
+      (error) => {
+          this.setState({
+              isLoaded: true,
+              error
+          });
+      }
+    )
+    console.log(this.state.quote)
+  }
+
 
   render(){
     return (
       <div className="App">
         <Header/>
         <div className="main">
-          <Image/>
+          <Image apiCall={this.apiCall}/>
           <Quote quote={this.state.quote}/>
         </div>
       </div>
