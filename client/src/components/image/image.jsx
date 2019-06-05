@@ -1,4 +1,5 @@
 import React from "react";
+import {Spring} from 'react-spring/renderprops'
 import './image.css'
 import trump from '../../images/trump.png'
 import talk from '../../images/talkTrump.png'
@@ -16,8 +17,9 @@ class Image extends React.Component{
     }
 
 
+
     imageReturn(){
-        setTimeout(this.state.clicked ? this.setState({source: trump}) : this.setState({source: talk}), 3000);
+        setTimeout(this.state.clicked ? this.setState({source: trump, clicked: false}) : this.setState({source: talk, clicked: true}), 3000);
     }
 
     toggleImage(props){
@@ -29,7 +31,21 @@ class Image extends React.Component{
     render(){
         return(
             <div className="Image">
-                <img onClick={this.toggleImage} src={this.state.source} alt="Trump Sillouhette"></img>
+
+                <Spring
+                    from={{
+                        // Start invisible and offscreen
+                        opacity: 0, marginTop: -1000,
+                        }}
+                        to={{
+                        // End fully visible and in the middle of the screen
+                        opacity: 1, marginTop: 0,
+                        }}
+                >
+                    { props => (<img style={props} onClick={this.toggleImage} src={this.state.source} alt="Trump Sillouhette"></img>)}
+                
+                </Spring>
+
             </div>
         )
     }
