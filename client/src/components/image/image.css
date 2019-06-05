@@ -1,11 +1,11 @@
 .Image{
     height: 270px;
     width: 40%;
-    margin: 2rem auto 3rem;
+    margin: 2rem auto;
 }
 
 img{
-    width: 70%;
+    max-width: 70%;
     height: auto;
     cursor:help
 }

@@ -11,15 +11,15 @@ class App extends React.Component {
     super(props);
     this.state={
       quote:null,
-      isLoaded: false
+      isLoaded: false,
     }
-    this.apiCall.bind(this)
+    this.apiCall = this.apiCall.bind(this)
   }
 
-  componentDidMount(){
-    this.apiCall();
+  // componentDidMount(){
+  //   this.apiCall();
 
-  }
+  // }
 
 
 
@@ -53,7 +53,7 @@ class App extends React.Component {
       <div className="App">
         <Header/>
         <div className="main">
-          <Image apiCall={this.apiCall}/>
+          <Image apiCall={this.apiCall} />
           <Quote quote={this.state.quote}/>
         </div>
       </div>
